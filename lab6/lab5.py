@@ -4,26 +4,63 @@ def findsub(word, sub):
     result = []
     len_sub = len(sub)
     check = 0
-    while a < len(word):
-        if word[a] == sub[0] and word[a+1] == sub[1] and word[a+2] == sub[2]:
+    count = 0
+    while a < len(word)-1:
+        for i in range(0, len_sub):
+            try:
+                if word[a+i] == sub[i]:
+                    check += 1
+                else:
+                    check = 0
+                    pass
+            except:
+                continue
+        if check == len_sub:
             result.append(sub[0:len_sub])
             a += shift_position
-            check += 1
+            check = 0
+            count += 1
         else:
             result.append(word[a])
             a += 1
-    return result, check
+    result.append(word[len(word)-1])
+    return result, count
 
-def findsub_shi(word,sub):
-    shift = 3
-    count = 0
+def findsub_v2(word,sub):
+    a = 0
+    shift_position = int(len(sub))
     result = []
-    while count < len(word):
-        if word[count] == sub[0] or word[count+1] == sub[1] or word[count+2] == sub[2]:
-            pass
+    len_sub = len(sub)
+    check = 0
+    count = 0
+    gaa = []
+    while a < len(word):
+        for i in range(0, len_sub):
+            try:
+                if word[a+i] == sub[i]:
+                    check += 1
+                    gaa.append(word[a+i])
+                else:
+                    gaa.append("?")
+            except:
+                continue
+        if check >= len_sub-1:
+            result.append(gaa)
+            a += shift_position
+            check = 0
+            count += 1
+            gaa = []
+        else:
+            gaa = []
+            result.append(word[a])
+            a += 1
+    #result.append(word[len(word)-1])
+    return result
 
-txt = "acabababababcbabab"
-substrings = "aba"
+#txt = "acabababababcbabab"
+#substrings = "aba"
+txt = input("Text: ")
+substrings = input("Substring: ")
 x = []
 y = []
 for item in txt:
@@ -32,8 +69,17 @@ for item in substrings:
     y.append(item)
 
 final, check = findsub(x, y)
-if check >= 1:
-    print(final)
-elif check == 0:
-    findsub_shi(x, y)
+if check > 0 :
+    for item in final:
+        if isinstance(item,list):
+            print(f"[{''.join(item)}]",end="")
+        else:
+            print(item, end='')
+else:
+    x = findsub_v2(x, y)
+    for item in x:
+        if isinstance(item,list):
+            print(f"[{''.join(item)}]",end="")
+        else:
+            print(item, end='')
 
