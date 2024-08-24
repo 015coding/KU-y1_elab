@@ -1,0 +1,42 @@
+Input grade: 12
+Homeroom Teacher: Jittat 
+Grade: 12
+Homeroom Teacher: Jittat 
+Students: 
+Number of students: 2
+Grade: 12
+Homeroom Teacher: Jittat 
+Students: 
+Student No1: Chinnaporn
+Student No2: Punpikorn
+Grade: 12
+Homeroom Teacher: Jittat 
+Students: Chinnaporn, Punpikorn
+Grade 12
+Homeroom Teacher Jittat 
+No.1: Chinnaporn
+No.2: Punpikorn
+>>>>>> Testing change student
+Grade: 12
+Homeroom Teacher: Jittat 
+Students: Chinnaporn, Abby
+Cannot change 4th student
+Index out of bound. Cannot change 13th student.
+Index out of bound. Cannot change -1th student.
+>>>>>> Testing remove student (name)
+Grade: 12
+Homeroom Teacher: Jittat 
+Students: Abby
+Grade: 12
+Homeroom Teacher: Jittat 
+Students: 
+>>>>>> Testing remove student no.
+Grade: 12
+Homeroom Teacher: Jittat 
+Students: Mary, Adam
+8 is invalid student number. There are only 2 students.
+Grade: 12
+Homeroom Teacher: Jittat 
+Students: Mary
+Index out of bound. Cannot remove -2th student.
+Index out of bound. Cannot remove 12th student.
